@@ -1,38 +1,740 @@
-.App {
-  text-align: center;
+/***************** NavBar Styles *****************/
+
+/* Fixed pink banner at the top containing the logo and navigation */
+.fixed-banner {
+  background-color: #FFFFFF; /* White background for the banner */
+  padding: 0 20px; /* Horizontal padding to create space */
+  display: flex; /* Use Flexbox for layout */
+  justify-content: space-between; /* Space out the children (logo and nav) */
+  align-items: center; /* Vertically center the content */
+  height: 140px; /* Fixed height for consistency */
+  position: fixed; /* Fix the banner at the top of the page */
+  top: 0; /* Align the banner to the top of the page */
+  left: 0; /* Align the banner to the left of the page */
+  right: 0; /* Align the banner to the right of the page */
+  z-index: 1000; /* Ensure the banner appears above other content */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Title on the left side of the banner (logo or brand name) */
+.banner-title {
+  font-family: Lucida Grande; /* Set font */
+  font-size: 40px; /* Large font size for the title */
+  color: #000000; /* Black color for the title */
+  margin: 0; /* Remove default margin */
+  padding: 0 0 0 20px; /* Left padding to create space from the edge */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Navigation links on larger screens */
+.nav-link {
+  color: #000000; /* Set text color to black */
+  font-size: 15px; /* Set font size for the links */
+  margin: 0 20px; /* Horizontal margin between links */
+  text-decoration: none; /* Remove underline from links */
+  position: relative; /* Set position for hover effect */
+  transition: color 0.4s ease; /* Smooth color transition on hover */
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+  color: #5C9BCB; /* Change color on hover */
+}
+
+/* Hamburger button for mobile screens */
+.hamburger-button {
+  border: none; /* Remove border for a clean look */
+  background-color: transparent; /* Transparent background */
+  color: #000000; /* Set hamburger icon color to black */
+}
+
+/* Hamburger icon (three horizontal lines) */
+.hamburger-icon {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack lines vertically */
+  justify-content: space-around; /* Space out the lines evenly */
+  width: 25px; /* Set width of the icon */
+  height: 20px; /* Set height of the icon */
+}
+
+/* Styling for individual lines in the hamburger icon */
+.hamburger-icon span {
+  height: 3px; /* Set height for each line in the hamburger icon */
+}
+
+/* Sidebar for mobile screens (appears when hamburger is clicked) */
+.sidebar {
+  margin-top: 50px; /* Offset from the top */
+  position: fixed; /* Fixed positioning for the sidebar */
+  top: 90px; /* Position it below the navbar */
+  right: 0; /* Align it to the right edge */
+  background-color: rgba(255, 255, 255, 1); /* White background */
+  width: 100%; /* Full width of the mobile dropdown */
+  height: 50%; /* Full height to cover the page */
+  transition: transform 0.5s ease; /* Smooth sliding effect for showing and hiding */
+  z-index: 999; /* Ensure it's above other elements */
+  padding-top: 60px; /* Padding from the top for links */
+  line-height: 4; /* Line height for spacing between links */
+  text-align: center; /* Center-align text inside the sidebar */
+  font-weight: bold; /* Make text bold */
+}
+
+/* Styling for username display in mobile sidebar */
+.username-display {
+  color: #7D7D7D; /* Gray color for username */
+  font-style: italic; /* Italicize username */
+}
+
+/* Responsive behavior for mobile view */
+@media (max-width: 1000px) {
+  .navbar-toggler {
+    display: block; /* Show hamburger button on smaller screens */
+  }
+  .collapse {
+    display: none; /* Hide regular nav links on smaller screens */
+  }
+  .d-lg-flex {
+    display: none; /* Hide horizontal links on small screens */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Responsive behavior for larger screens */
+@media (min-width: 1001px) {
+  .navbar-toggler {
+    display: none; /* Hide hamburger button on larger screens */
+  }
+  .d-lg-flex {
+    display: flex; /* Display horizontal nav links on larger screens */
+  }
+}
+
+
+/***************** Home Styles *****************/
+
+/* Style for the home image section */
+.home-image {
+  background-image: url('./assets/surf4.jpg'); /* Background image for the section */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Ensure the image doesn't repeat */
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Use Flexbox to align content */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  color: #00CED1; /* Text color for the section */
+  margin-top: 150px; /* Add space from the top */
+}
+
+/* Style for the bio text in the home section */
+.home-bio {
+  text-align: center; /* Center-align the text */
+  font-family: Times; /* Set font family */
+  color: #4B4B4B; /* Dark gray color for the text */
+  max-width: 800px; /* Limit the width for readability */
+  margin: 20px auto; /* Center the paragraph and add spacing */
+  padding: 10px 20px; /* Add padding for space around the text */
+  font-size: 18px; /* Font size for the paragraph */
+}
+
+/* Styling for the home bio heading */
+.home-bio h1 {
+  font-family: Lucida Grande; /* Set font family for the heading */
+  margin: 50px 0 40px 0; /* Margin to separate the heading from other elements */
+  color: #4A7FA6; /* Blue color for the heading */
+  font-size: 25px; /* Set font size for the heading */
+}
+
+/* Divider style for the home section */
+.home-divider {
+  margin: 50px 0; /* Add spacing around the divider */
+}
+
+/* Style for the home list */
+.home-list {
+  display: flex; /* Use Flexbox layout */
+  flex-direction: column; /* Stack the list items vertically */
+  justify-content: center; /* Center the items */
+  text-align: center; /* Center the text */
+  list-style-type: none; /* Remove default list bullets */
+}
+
+/* Styling for each list item in the home list */
+.home-list li {
+  line-height: 2.5; /* Space out the lines within the list */
+}
+
+/* Styling for the contact text section */
+.contact-text {
+  margin: 80px 0; /* Add margin above and below the contact text */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Style for the contact links */
+.contact-link {
+  color: #4A7FA6 !important; /* Blue color for links */
+  text-decoration: none !important; /* Remove underline from links */
+  transition: color 0.3s, transform 0.2s; /* Smooth transition on hover */
+}
+
+/* Hover effect for the contact links */
+.contact-link:hover {
+  color: #4B4B4B !important; /* Change color to gray on hover */
+}
+
+/* Overlay for the modal (dark background behind the modal) */
+.modal-overlay {
+  position: fixed; /* Fixed positioning to cover the entire screen */
+  top: 0; left: 0; right: 0; bottom: 0; /* Stretch the overlay across the whole screen */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+  display: flex; /* Use Flexbox to center the modal */
+  align-items: center; /* Center the modal vertically */
+  justify-content: center; /* Center the modal horizontally */
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+/* Style for the modal content (the actual modal box) */
+.modal-content {
+  background: white; /* White background for the modal */
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners */
+  max-width: 500px; /* Limit the width of the modal */
+  width: 100%; /* Allow the modal to scale within its max-width */
+  text-align: center; /* Center-align the text inside the modal */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow to give depth */
+  font-family: Lucida Grande; /* Set font family for modal content */
+}
+
+/* Styling for the modal heading */
+.modal-content h2 {
+  margin-top: 0; /* Remove the top margin */
+}
+
+/* Label styling inside the modal form */
+.modal-content form label {
+  display: block; /* Display labels as block elements */
+  margin-bottom: 10px; /* Add space below the labels */
+  text-align: left; /* Align labels to the left */
+}
+
+/* Input and textarea styling inside the modal form */
+.modal-content form input,
+.modal-content form textarea {
+  width: 100%; /* Make inputs and textareas fill the container */
+  padding: 8px; /* Add padding for comfortable typing */
+  margin-top: 5px; /* Margin on top for spacing */
+  margin-bottom: 15px; /* Margin on the bottom for spacing */
+  border-radius: 4px; /* Rounded corners for inputs and textareas */
+  border: 1px solid #ccc; /* Light gray border */
+}
+
+/* Button styling inside the modal form */
+.modal-content form button {
+  padding: 10px 20px; /* Add padding inside the buttons */
+  margin: 5px; /* Margin between buttons */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners for buttons */
+  cursor: pointer; /* Change the cursor to pointer on hover */
+}
+
+/* Submit button styling */
+.modal-content form button[type="submit"] {
+  background-color: #4A7FA6; /* Blue background for the submit button */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover */
+  color: white; /* White text color */
+}
+
+/* Submit button hover effect */
+.modal-content form button[type="submit"]:hover {
+  background-color: #3B6B8C; /* Darker blue when hovering */
+}
+
+/* Button for actions other than submit (e.g., cancel button) */
+.modal-content form button[type="button"] {
+  background-color: #ccc; /* Light gray background */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover */
+}
+
+/* Hover effect for non-submit buttons */
+.modal-content form button[type="button"]:hover {
+  background-color: #999; /* Darker gray on hover */
+}
+
+/* Error message styling (for form validation) */
+.error {
+  color: red; /* Red color for errors */
+  font-size: 12px; /* Smaller font size for error messages */
+  margin-top: 5px; /* Margin above the error messages */
+}
+
+
+/***************** Shop Styles *****************/
+
+/* Shop container: centers content with specified margins and padding */
+.shop-container {
+  margin: 220px auto 100px auto; /* Top margin for space, auto for horizontal centering, bottom margin for spacing */
+  width: 100%; /* Full width of the container */
+  max-width: 1400px; /* Maximum width of 1400px */
+  padding: 0 40px; /* Padding on the left and right for spacing */
+}
+
+/* Section title style for shop */
+.section-title {
+  font-family: Lucida Grande; /* Font family for the title */
+  text-transform: uppercase; /* Make the title uppercase */
+  font-weight: bold; /* Bold text */
+  font-size: 18px; /* Font size for the title */
+}
+
+/* Section description style for shop */
+.section-description {
+  color: #7D7D7D; /* Gray color for the description */
+  font-family: Times; /* Font family for the description */
+  margin-bottom: 50px; /* Bottom margin for spacing */
+}
+
+/* Divider style for separating sections */
+.shop-divider {
+  margin: 80px 0; /* Margin on top and bottom to create space */
+  color: #4B4B4B; /* Dark gray color for the divider */
+}
+
+/***************** ProductInfo Styles *****************/
+
+/* Product title styling: uppercase and bold */
+.product-title {
+  text-transform: uppercase; /* Uppercase letters */
+  font-family: Lucida Grande; /* Font family for the title */
+  font-size: 15px; /* Font size for the title */
+  font-weight: bold; /* Bold text */
+}
+
+/* Product text styling: description or other text related to the product */
+.product-text {
+  color: #7D7D7D; /* Gray text color */
+  font-family: Times; /* Font family for product text */
+  font-size: 15px; /* Font size for product text */
+}
+
+/* Price display styling */
+.price-display {
+  font-size: 14px; /* Smaller font size for the price */
+  margin: 10px 0; /* Margin on top and bottom for spacing */
+}
+
+/* Add to cart button styling */
+.add-button {
+  background-color: #4A7FA6; /* Blue background for the button */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions for background color and scaling */
+  border: none; /* No border around the button */
+}
+
+/* Hover effect for add to cart button */
+.add-button:hover {
+  background-color: #3B6B8C; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Product card container */
+.product-card {
+  display: flex; /* Use Flexbox for layout */
+  flex-direction: column; /* Stack the card elements vertically */
+  justify-content: space-between; /* Space out content evenly */
+  border: none; /* No border around the card */
+  min-height: 450px; /* Minimum height for the card */
+}
+
+/* Image container for product images */
+.product-image-container {
+  height: 250px; /* Fixed height for the image container */
+  overflow: hidden; /* Hide any overflowing content */
+  flex-shrink: 0; /* Prevent the container from shrinking */
+}
+
+/* Image styling within the product card */
+.product-image {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+/* Text content container for product details below the image */
+.product-content {
+  padding: 1rem; /* Padding around the text content */
+  flex-grow: 1; /* Allow content to expand and fill remaining space */
+}
+
+
+/***************** Login Styles *****************/
+
+/* Image container styling to fill the left side on large screens */
+.login-image-container {
+  padding: 0; /* No padding */
+  margin-top: 50px; /* Adds space from the top */
+}
+
+/* Login form styling */
+.login-form {
+  font-family: Lucida Grande; /* Font family for the form text */
+  text-transform: uppercase; /* Make the text uppercase */
+  font-weight: bold; /* Bold text for emphasis */
+  font-size: 12px; /* Small font size for the form fields */
+  color: #4B4B4B; /* Dark gray text color */
+  padding: 150px 0; /* Top and bottom padding to center the form */
+}
+
+/* Submit button styling */
+.login-submit {
+  background-color: #4A7FA6; /* Blue background for the button */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for color and transform */
+  border: none; /* No border around the button */
+  color: #FFFFFF; /* White text color */
+}
+
+/* Hover effect for submit button */
+.login-submit:hover {
+  background-color: #3B6B8C; /* Darker shade of blue when hovered */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+  color: #FFFFFF; /* Ensure text stays white on hover */
+}
+
+/* Image styling */
+.login-image {
+  width: 100%; /* Full width for the image */
+  height: 100%; /* Full height for the image */
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+/* Centering the form content within the container */
+.login-form-container {
+  padding: 20px; /* Padding around the form container */
+}
+
+/* Media query for responsive design */
+@media (max-width: 1200px) {
+  /* Adjust the image container's top margin on smaller screens */
+  .login-image-container {
+    margin-top: 150px; /* Increase space from the top for smaller screens */
+  }
+}
+
+
+/***************** Cart Styles *****************/
+
+/* Container for the entire cart section */
+.cart-container {
+  margin-top: 120px; /* Adjust vertical spacing from the top */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center content horizontally */
+  gap: 1.5rem; /* Space between items in the cart */
+  padding: 0 50px; /* Padding on left and right */
+  max-width: 1000px; /* Maximum width for container */
+  margin-left: auto;
+  margin-right: auto; /* Center the container horizontally */
 }
 
-.App-link {
-  color: #61dafb;
+/* Individual cart item card */
+.cart-item-card {
+  display: flex;
+  flex-direction: row; /* Arrange the image and text side by side */
+  align-items: center; /* Align items in the center vertically */
+  gap: 1rem; /* Space between image and text */
+  border: none; /* No border around each item */
+  padding: 1rem; /* Padding around the item */
+  width: 100%; /* Ensure each card takes up full width of container */
+  max-width: 800px; /* Optional max-width for each item card */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Container for the content of each cart item */
+.cart-item-body {
+  display: flex;
+  align-items: center; /* Align items in the center */
+  justify-content: space-between; /* Space out the items (image, text, buttons) */
+  width: 100%; /* Make sure it takes full width */
+}
+
+/* Container for the item image */
+.cart-item-image-container {
+  width: 150px; /* Set a fixed width for the image */
+  height: 200px; /* Set a fixed height for the image */
+  overflow: hidden; /* Hide any overflow beyond the container */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+/* Styling the image inside the cart */
+.cart-item-image {
+  width: 100%; /* Make the image fill the container */
+  height: 100%; /* Make the image fill the height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+/* Cart item title (h4) styling */
+.cart-container h4 {
+  font-family: Times; /* Use the Times font */
+  font-size: 20px; /* Set the font size */
+  margin-left: 0; /* Remove the left margin */
+}
+
+/* Divider styling for separating cart items */
+.cart-divider {
+  color: #7D7D7D; /* Light gray color for the divider */
+  margin-top: 10px; /* Space above the divider */
+  width: 100%; /* Make the divider full width */
+}
+
+/* Container for the cart item details (text) */
+.cart-item-details {
+  flex-grow: 1; /* Allow details to expand to fill remaining space */
+  display: flex;
+  flex-direction: column; /* Stack text elements vertically */
+  justify-content: space-between; /* Space out text vertically */
+  font-family: Lucida Grande; /* Use Lucida Grande font */
+  margin-left: 50px; /* Space between image and text */
+}
+
+/* Heading for cart item details */
+.cart-item-details h5 {
+  margin-bottom: 0.5rem; /* Space below the heading */
+  text-transform: uppercase; /* Make text uppercase */
+  font-size: 16px; /* Font size for item names */
+}
+
+/* Description paragraph styling */
+.cart-item-details p {
+  margin-bottom: 0.5rem; /* Space below each paragraph */
+  color: #7D7D7D; /* Light gray color for text */
+  font-size: 14px; /* Font size for description */
+}
+
+/* Styling for quantity input box */
+.quantity-input {
+  border: none; /* Remove border */
+  width: 50px; /* Fixed width for the input box */
+}
+
+/* Remove button container */
+.remove-button-container {
+  margin-top: 0.5rem; /* Add spacing above the remove button */
+}
+
+/* Styling for the remove button */
+.remove-button {
+  background: none; /* No background color */
+  border: none; /* No border */
+  color: #7D7D7D; /* Light gray text color */
+  padding: 0; /* No padding */
+  cursor: pointer; /* Change cursor to pointer */
+  text-decoration: none; /* Remove text decoration */
+  font-size: 14px; /* Font size for remove button */
+}
+
+/* Hover effect for remove button */
+.remove-button:hover {
+  background: none; /* Ensure no background color on hover */
+  color: #000000; /* Change text color to black on hover */
+}
+
+/* Container for the total price display */
+.total-price-container {
+  text-align: center; /* Center the text */
+  font-family: Lucida Grande; /* Use Lucida Grande font */
+  margin: 20px 0 80px 0; /* Margin above and below the total price */
+}
+
+/* Styling for the total price heading */
+.total-price-container h5 {
+  font-weight: bold; /* Make the total price bold */
+}
+
+/* Shipping information section styling */
+.shipping-container {
+  font-family: Lucida Grande; /* Use Lucida Grande font */
+  font-size: 14px; /* Font size for shipping section */
+}
+
+/* Styling for the shipping dropdown */
+.shipping-dropdown {
+  border: none; /* Remove border for the dropdown */
+}
+
+/* Help button styling */
+.help-button {
+  text-decoration: none; /* No text decoration */
+  color: #7D7D7D; /* Light gray text color */
+  font-size: 14px; /* Font size for help button */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Hover effect for help button */
+.help-button:hover {
+  color: #000000; /* Change text color to black on hover */
+}
+
+/* Modal for shipping information */
+.shipping-modal {
+  font-family: Lucida Grande; /* Use Lucida Grande font */
+  font-size: 14px; /* Font size for modal content */
+  border-radius: 0; /* Remove border radius */
+}
+
+/* Shipping modal paragraph styling */
+.shipping-modal p {
+  color: #7D7D7D; /* Light gray color for paragraph text */
+}
+
+/* Close button inside the modal */
+.close-button {
+  text-transform: uppercase; /* Make the close button text uppercase */
+  font-size: 12px; /* Font size for close button */
+}
+
+/* Container when the cart is empty */
+.cart-empty-container {
+  display: flex;
+  flex-direction: column; /* Stack empty cart content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 73vh; /* Set height to 73% of the viewport */
+}
+
+/* Cart empty icon styling */
+.shopping-cart-icon {
+  color: #7D7D7D; /* Light gray color for the icon */
+}
+
+/* Cart empty message */
+.cart-message {
+  font-size: 20px; /* Set font size for the message */
+  font-family: Times; /* Use Times font for the message */
+  color: #7D7D7D; /* Light gray text color */
+  padding: 10px; /* Add padding around the message */
+}
+
+/* Button to go back to the shop */
+.go-to-shop-button {
+  background-color: #4A7FA6; /* Blue background for the button */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  border: none; /* No border */
+  color: #FFFFFF; /* White text color */
+}
+
+/* Hover effect for go-to-shop button */
+.go-to-shop-button:hover {
+  background-color: #3B6B8C; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+  color: #FFFFFF; /* Ensure the text stays white */
+}
+
+/* Media query for smaller screens (max-width 670px) */
+@media (max-width: 670px) {
+  .cart-container {
+    padding: 0 10px; /* Less padding for small screens */
   }
-  to {
-    transform: rotate(360deg);
+  .shipping-container {
+    padding: 0 50px; /* Adjust padding for the shipping section */
   }
+}
+
+/* Media query for very small screens (max-width 470px) */
+@media (max-width: 470px) {
+  .cart-container {
+    padding: 0 5px; /* Even less padding for very small screens */
+  }
+}
+
+/***************** Registration Styles *****************/
+
+/* Main container for the registration form */
+.registration-container {
+  margin: 200px 100px 100px 100px; /* Set margin to create space around the form */
+}
+
+/* Styling for the registration text section */
+.registration-text {
+  font-family: Lucida Grande; /* Font style */
+  padding: 0 50px 0 0; /* Right padding only */
+}
+
+/* Title of the registration section */
+.registration-title {
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: bold; /* Bold text */
+  font-size: 20px; /* Font size for the title */
+  color: #4A7FA6; /* Blue color */
+}
+
+/* Description text for the registration section */
+.registration-description {
+  color: #7D7D7D; /* Light gray color */
+  font-family: Times; /* Font style */
+}
+
+/* Form styling for the registration form */
+.registration-form {
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: bold; /* Bold text */
+  font-size: 12px; /* Smaller font size for form inputs */
+  color: #4B4B4B; /* Dark gray color */
+}
+
+/* Submit button styling for the registration form */
+.registration-submit {
+  background-color: #4A7FA6; /* Blue background */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
+  border: none; /* Remove border */
+  color: #FFFFFF; /* White text */
+}
+
+/* Hover effect for submit button */
+.registration-submit:hover {
+  background-color: #3B6B8C; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+  color: #FFFFFF; /* Ensure text remains white */
+}
+
+/* Media query for large screens (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .registration-container {
+    margin: 200px 200px 100px 200px; /* Adjust margin for larger screens */
+  } 
+}
+
+/* Media query for smaller screens (max-width: 767px) */
+@media (max-width: 767px) {
+  .registration-container {
+    margin: 200px 20px 100px 20px; /* Reduced margin for mobile screens */
+  }
+  
+  /* Adjust title margin on small screens */
+  .registration-title {
+    margin: 20px 0 0 0;
+  }
+  
+  /* Adjust description margin on small screens */
+  .registration-description {
+    margin: 20px 0 70px 0;
+  }
+}
+
+
+/***************** Footer Styles *****************/
+
+/* Footer container styles */
+.footer-container {
+  background-color: #4A7FA6; /* Blue background */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Vertically center the items */
+  justify-content: center; /* Horizontally center the items */
+  color: #FFFFFF; /* White text */
+  font-family: Lucida Grande; /* Font style */
+  font-size: 12px; /* Smaller font size */
+  max-width: 100%; /* Ensure it takes full width */
+  padding: 60px 20px 40px 20px; /* Padding for the footer */
+}
+
+/* Footer text styling */
+.footer-text {
+  font-size: 12px; /* Font size */
+  text-transform: uppercase; /* Uppercase text */
+  margin-bottom: 50px; /* Margin below the footer text */
 }
